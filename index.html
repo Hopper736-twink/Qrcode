@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brawl QR Hub</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #111827;
+      color: white;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 42px;
+    }
+
+    p {
+      text-align: center;
+      color: #9ca3af;
+      margin-bottom: 30px;
+    }
+
+    .search {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto 30px auto;
+      display: block;
+      padding: 14px;
+      border-radius: 14px;
+      border: none;
+      background: #1f2937;
+      color: white;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1f2937;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 15px;
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+    }
+
+    .download {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: #3b82f6;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .download:hover {
+      background: #2563eb;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Brawl QR Hub</h1>
+  <p>Все QR-коды для Brawl Stars</p>
+
+  <input type="text" class="search" id="search" placeholder="Поиск QR-кода...">
+
+  <div class="grid" id="grid"></div>
+
+  <script>
+    const qrCodes = [
+      {
+        title: "Kaiju Profile Icon",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/935251d2-1647-433e-a6e6-771a6ade9293"
+      },
+      {
+        title: "Spike Perfect Profile Icon",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/da19cd17-68af-4ed9-8671-b974a3a73356"
+      },
+      {
+        title: "Book Profile Icon",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/91eead0b-0917-4077-8efe-6b852c7e49a3"
+      },
+      {
+        title: "Classic Brawl Profile Icon",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/3484c6d2-9ab5-4eae-878a-4a186fc4e24a"
+      },
+      {
+        title: "M Profile Icon",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/4c9ea6d6-10f7-430d-a506-201903512c50"
+      },
+      {
+        title: "Spike Friends Profile Icon",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/ab9cf7c2-45f8-4012-ad38-dfe8b1747c3b"
+      },
+      {
+        title: "Pizza Planet Profile Icon",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/8142f715-a879-4d19-9af3-fa49e72ef59a"
+      },
+      {
+        title: "Scroll Spray",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/974a1b0f-b2f7-45c5-978e-bdade83062a1"
+      },
+      {
+        title: "Hank April Fools Spray",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/963326be-8393-492e-91ea-b19325ffb088"
+      },
+      {
+        title: "Clown Pin",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/b647c71d-41a5-42c4-a10f-8d47952d82f3"
+      },
+      {
+        title: "Godzilla Egg Pin",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/cc017c48-b904-448d-9fe1-dd494e28bfd2"
+      },
+      {
+        title: "Upside Down Pin",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/cbd9bc12-423e-4a32-be45-590b0ebc52ad"
+      },
+      {
+        title: "Skull Mindblown Pin",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/e4a3bb44-95fd-48d1-9fe6-378619bf2eb9"
+      },
+      {
+        title: "Bulb Pin",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/fad039a8-4850-4a09-b1dd-f673afec5aa7/"
+      },
+      {
+        title: "White Spray Pin",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/315b3e4f-0fd5-4a31-a5b0-86806f7638fc"
+      },
+      {
+        title: "Cartoon Skull Pin",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/2593e957-9cef-4ce7-b15f-b1dec74ec7df"
+      },
+      {
+        title: "500x Coins",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/24321637-3978-4f14-a258-a1a713d17213"
+      },
+      {
+        title: "100x Coins",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/6bb96c6a-bb06-4b06-aae8-4de28c39474d"
+      },
+      {
+        title: "1x Chaos Drop",
+        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/voucher/b86d7fe2-7072-4388-adb4-8057cd56537c"
+      }
+    ];
+
+    const grid = document.getElementById("grid");
+    const search = document.getElementById("search");
+
+    function render(items) {
+      grid.innerHTML = "";
+
+      items.forEach(item => {
+        grid.innerHTML += `
+          <div class="card">
+            <img src="${item.image}" alt="${item.title}">
+            <h2>${item.title}</h2>
+            <a class="download" href="${item.image}" download>
+              Скачать
+            </a>
+          </div>
+        `;
+      });
+    }
+
+    search.addEventListener("input", () => {
+      const value = search.value.toLowerCase();
+
+      const filtered = qrCodes.filter(qr =>
+        qr.title.toLowerCase().includes(value)
+      );
+
+      render(filtered);
+    });
+
+    render(qrCodes);
+  </script>
+
+</body>
+</html>
