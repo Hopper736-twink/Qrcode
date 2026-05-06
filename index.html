@@ -1,212 +1,179 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brawl QR Hub</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brawl Stars Codes Hub</title>
+<style>
+    body{
+        margin:0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg,#0f172a,#1e293b);
+        color:#fff;
     }
-
-    body {
-      background: #111827;
-      color: white;
-      padding: 20px;
+    header{
+        padding:30px 20px;
+        text-align:center;
     }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-      font-size: 42px;
+    header h1{
+        margin:0;
+        font-size:28px;
+        letter-spacing:1px;
     }
-
-    p {
-      text-align: center;
-      color: #9ca3af;
-      margin-bottom: 30px;
+    header p{
+        opacity:0.7;
+        margin-top:8px;
     }
-
-    .search {
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto 30px auto;
-      display: block;
-      padding: 14px;
-      border-radius: 14px;
-      border: none;
-      background: #1f2937;
-      color: white;
-      font-size: 16px;
+    .container{
+        max-width:1000px;
+        margin:0 auto;
+        padding:20px;
     }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+    .grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:16px;
     }
-
-    .card {
-      background: #1f2937;
-      border-radius: 20px;
-      padding: 20px;
-      text-align: center;
-      transition: 0.2s;
+    .card{
+        background: rgba(255,255,255,0.06);
+        border:1px solid rgba(255,255,255,0.1);
+        border-radius:14px;
+        padding:16px;
+        backdrop-filter: blur(10px);
+        transition:0.2s;
     }
-
-    .card:hover {
-      transform: scale(1.03);
+    .card:hover{
+        transform: translateY(-4px);
+        background: rgba(255,255,255,0.1);
     }
-
-    .card img {
-      width: 100%;
-      border-radius: 16px;
-      margin-bottom: 15px;
+    .title{
+        font-size:15px;
+        margin-bottom:10px;
+        font-weight:bold;
     }
-
-    .card h2 {
-      margin-bottom: 10px;
+    .btn{
+        display:inline-block;
+        padding:10px 12px;
+        border-radius:10px;
+        text-decoration:none;
+        background:#22c55e;
+        color:#000;
+        font-weight:bold;
+        font-size:13px;
+        transition:0.2s;
     }
-
-    .download {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 16px;
-      border-radius: 12px;
-      background: #3b82f6;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
+    .btn:hover{
+        background:#16a34a;
     }
-
-    .download:hover {
-      background: #2563eb;
+    footer{
+        text-align:center;
+        padding:20px;
+        opacity:0.5;
+        font-size:12px;
     }
-  </style>
+</style>
 </head>
-<body>
+<body><header>
+    <h1>Brawl Stars Rewards Hub</h1>
+    <p>Click a button to redeem your in-game rewards</p>
+</header><div class="container">
+    <div class="grid"><div class="card">
+        <div class="title">Kaiju Profile Icon</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/935251d2-1647-433e-a6e6-771a6ade9293" target="_blank">Claim Reward</a>
+    </div>
 
-  <h1>Brawl QR Hub</h1>
-  <p>Все QR-коды для Brawl Stars</p>
+    <div class="card">
+        <div class="title">Spike Perfect Profile Icon</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/da19cd17-68af-4ed9-8671-b974a3a73356" target="_blank">Claim Reward</a>
+    </div>
 
-  <input type="text" class="search" id="search" placeholder="Поиск QR-кода...">
+    <div class="card">
+        <div class="title">Book Profile Icon</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/91eead0b-0917-4077-8efe-6b852c7e49a3" target="_blank">Claim Reward</a>
+    </div>
 
-  <div class="grid" id="grid"></div>
+    <div class="card">
+        <div class="title">Classic Brawl Profile Icon</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/3484c6d2-9ab5-4eae-878a-4a186fc4e24a" target="_blank">Claim Reward</a>
+    </div>
 
-  <script>
-    const qrCodes = [
-      {
-        title: "Kaiju Profile Icon",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/935251d2-1647-433e-a6e6-771a6ade9293"
-      },
-      {
-        title: "Spike Perfect Profile Icon",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/da19cd17-68af-4ed9-8671-b974a3a73356"
-      },
-      {
-        title: "Book Profile Icon",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/91eead0b-0917-4077-8efe-6b852c7e49a3"
-      },
-      {
-        title: "Classic Brawl Profile Icon",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/3484c6d2-9ab5-4eae-878a-4a186fc4e24a"
-      },
-      {
-        title: "M Profile Icon",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/4c9ea6d6-10f7-430d-a506-201903512c50"
-      },
-      {
-        title: "Spike Friends Profile Icon",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/ab9cf7c2-45f8-4012-ad38-dfe8b1747c3b"
-      },
-      {
-        title: "Pizza Planet Profile Icon",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/8142f715-a879-4d19-9af3-fa49e72ef59a"
-      },
-      {
-        title: "Scroll Spray",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/974a1b0f-b2f7-45c5-978e-bdade83062a1"
-      },
-      {
-        title: "Hank April Fools Spray",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/963326be-8393-492e-91ea-b19325ffb088"
-      },
-      {
-        title: "Clown Pin",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/b647c71d-41a5-42c4-a10f-8d47952d82f3"
-      },
-      {
-        title: "Godzilla Egg Pin",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/cc017c48-b904-448d-9fe1-dd494e28bfd2"
-      },
-      {
-        title: "Upside Down Pin",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/cbd9bc12-423e-4a32-be45-590b0ebc52ad"
-      },
-      {
-        title: "Skull Mindblown Pin",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/e4a3bb44-95fd-48d1-9fe6-378619bf2eb9"
-      },
-      {
-        title: "Bulb Pin",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/fad039a8-4850-4a09-b1dd-f673afec5aa7/"
-      },
-      {
-        title: "White Spray Pin",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/315b3e4f-0fd5-4a31-a5b0-86806f7638fc"
-      },
-      {
-        title: "Cartoon Skull Pin",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/2593e957-9cef-4ce7-b15f-b1dec74ec7df"
-      },
-      {
-        title: "500x Coins",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/24321637-3978-4f14-a258-a1a713d17213"
-      },
-      {
-        title: "100x Coins",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/en/voucher/6bb96c6a-bb06-4b06-aae8-4de28c39474d"
-      },
-      {
-        title: "1x Chaos Drop",
-        image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=https://link.brawlstars.com/voucher/b86d7fe2-7072-4388-adb4-8057cd56537c"
-      }
-    ];
+    <div class="card">
+        <div class="title">M Profile Icon</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/4c9ea6d6-10f7-430d-a506-201903512c50" target="_blank">Claim Reward</a>
+    </div>
 
-    const grid = document.getElementById("grid");
-    const search = document.getElementById("search");
+    <div class="card">
+        <div class="title">Spike Friends Profile Icon</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/ab9cf7c2-45f8-4012-ad38-dfe8b1747c3b" target="_blank">Claim Reward</a>
+    </div>
 
-    function render(items) {
-      grid.innerHTML = "";
+    <div class="card">
+        <div class="title">Pizza Planet Profile Icon</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/8142f715-a879-4d19-9af3-fa49e72ef59a" target="_blank">Claim Reward</a>
+    </div>
 
-      items.forEach(item => {
-        grid.innerHTML += `
-          <div class="card">
-            <img src="${item.image}" alt="${item.title}">
-            <h2>${item.title}</h2>
-            <a class="download" href="${item.image}" download>
-              Скачать
-            </a>
-          </div>
-        `;
-      });
-    }
+    <div class="card">
+        <div class="title">Scroll Spray</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/974a1b0f-b2f7-45c5-978e-bdade83062a1" target="_blank">Claim Reward</a>
+    </div>
 
-    search.addEventListener("input", () => {
-      const value = search.value.toLowerCase();
+    <div class="card">
+        <div class="title">Hank April Fools Spray</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/963326be-8393-492e-91ea-b19325ffb088" target="_blank">Claim Reward</a>
+    </div>
 
-      const filtered = qrCodes.filter(qr =>
-        qr.title.toLowerCase().includes(value)
-      );
+    <div class="card">
+        <div class="title">Clown Pin</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/b647c71d-41a5-42c4-a10f-8d47952d82f3" target="_blank">Claim Reward</a>
+    </div>
 
-      render(filtered);
-    });
+    <div class="card">
+        <div class="title">Godzilla Egg Pin</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/cc017c48-b904-448d-9fe1-dd494e28bfd2" target="_blank">Claim Reward</a>
+    </div>
 
-    render(qrCodes);
-  </script>
+    <div class="card">
+        <div class="title">Upside Down Pin</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/cbd9bc12-423e-4a32-be45-590b0ebc52ad" target="_blank">Claim Reward</a>
+    </div>
 
-</body>
+    <div class="card">
+        <div class="title">Skull Mindblown Pin</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/e4a3bb44-95fd-48d1-9fe6-378619bf2eb9" target="_blank">Claim Reward</a>
+    </div>
+
+    <div class="card">
+        <div class="title">Bulb Pin</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/fad039a8-4850-4a09-b1dd-f673afec5aa7/" target="_blank">Claim Reward</a>
+    </div>
+
+    <div class="card">
+        <div class="title">White Spray Pin</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/315b3e4f-0fd5-4a31-a5b0-86806f7638fc" target="_blank">Claim Reward</a>
+    </div>
+
+    <div class="card">
+        <div class="title">Cartoon Skull Pin</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/2593e957-9cef-4ce7-b15f-b1dec74ec7df" target="_blank">Claim Reward</a>
+    </div>
+
+    <div class="card">
+        <div class="title">500 Coins</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/24321637-3978-4f14-a258-a1a713d17213" target="_blank">Claim Reward</a>
+    </div>
+
+    <div class="card">
+        <div class="title">100 Coins</div>
+        <a class="btn" href="https://link.brawlstars.com/en/voucher/6bb96c6a-bb06-4b06-aae8-4de28c39474d" target="_blank">Claim Reward</a>
+    </div>
+
+    <div class="card">
+        <div class="title">Chaos Drop</div>
+        <a class="btn" href="https://link.brawlstars.com/voucher/b86d7fe2-7072-4388-adb4-8057cd56537c" target="_blank">Claim Reward</a>
+    </div>
+
+</div>
+
+</div><footer>
+    Made for GitHub Pages • Brawl Stars Rewards Hub
+</footer></body>
 </html>
