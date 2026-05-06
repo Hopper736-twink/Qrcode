@@ -1,0 +1,2 @@
+# Qrcode
+Все рабочие QRCode 
